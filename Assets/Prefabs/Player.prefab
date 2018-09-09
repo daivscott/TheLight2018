@@ -684,7 +684,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   stopNaNPropagation: 1
-  antialiasingMode: 3
+  antialiasingMode: 2
   temporalAntialiasing:
     jitterSpread: 0.75
     sharpness: 0.25
@@ -742,7 +742,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   stopNaNPropagation: 1
-  antialiasingMode: 3
+  antialiasingMode: 2
   temporalAntialiasing:
     jitterSpread: 0.75
     sharpness: 0.25
@@ -889,7 +889,7 @@ MonoBehaviour:
   sharedProfile: {fileID: 11400000, guid: 9b8ea25024929b3408bbd2bba3a1d2b6, type: 2}
   isGlobal: 1
   blendDistance: 0
-  weight: 1
+  weight: 0.8
   priority: 0
 --- !u!114 &114398002487701382
 MonoBehaviour:
