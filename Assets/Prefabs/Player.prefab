@@ -246,6 +246,7 @@ GameObject:
   - component: {fileID: 124829569762850006}
   - component: {fileID: 114141970510278392}
   - component: {fileID: 114762503897501902}
+  - component: {fileID: 114713307401415036}
   m_Layer: 8
   m_Name: FirstPersonCharacter
   m_TagString: MainCamera
@@ -1470,6 +1471,20 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114713307401415036
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1430535444550384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0455db14c1c88be44969233d95e2fdd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zoom: 10
+  normal: 60
+  smooth: 5
 --- !u!114 &114735701767419350
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1484,6 +1499,7 @@ MonoBehaviour:
   shotCooldown: 0.1
   firePosition: {fileID: 4709876202185082}
   shotEffects: {fileID: 114003773873367642}
+  shotLength: 100
 --- !u!114 &114737691814659378
 MonoBehaviour:
   m_ObjectHideFlags: 1

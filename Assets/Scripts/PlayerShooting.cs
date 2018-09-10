@@ -8,7 +8,8 @@ public class PlayerShooting : NetworkBehaviour {
     [SerializeField] ShotEffectsManager shotEffects;
 
     float ellapsedTime;
-    float shotLength = 50f;
+    [SerializeField]
+    private float shotLength = 50f;
     bool canShoot;
 
     void Start()
