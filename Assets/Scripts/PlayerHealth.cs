@@ -3,10 +3,13 @@ using UnityEngine.Networking;
 
 public class PlayerHealth : NetworkBehaviour {
 
-    [SerializeField] int maxHealth = 3;
+    // Set the max health
+    [SerializeField] float maxHealth = 3f;
 
-    [SyncVar (hook = "OnHealthChanged")] int health;
+    // Health variable with callback on change
+    [SyncVar (hook = "OnHealthChanged")] float health;
 
+    // Player reference
     Player player;
     
     void Awake()
@@ -14,12 +17,14 @@ public class PlayerHealth : NetworkBehaviour {
         player = GetComponent<Player>();
     }
 
+    // Initialize health to max (controlled only by the server)
     [ServerCallback]
     void OnEnable()
     {
         health = maxHealth;
     }
 
+    // 
     [Server]
     public bool TakeDamage()
     {
@@ -27,14 +32,19 @@ public class PlayerHealth : NetworkBehaviour {
         if (health <= 0)
             return died;
 
+        //decrement the health variable
         health--;
+
+        // set died variable to true if health less than 0
         died = health <= 0;
 
+        // function call
         RpcTakeDamage(died);
 
         return died;
     }
 
+    // Damage message sent to clients from server
     [ClientRpc]
     void RpcTakeDamage(bool died)
     {
@@ -47,12 +57,14 @@ public class PlayerHealth : NetworkBehaviour {
             player.Die();
     }
 
-    void OnHealthChanged(int value)
+    // health changed callback function
+    void OnHealthChanged(float value)
     {
         health = value;
         if(isLocalPlayer)
         {
-            PlayerCanvas.canvas.SetHealth(value);
+            // Setting the health amount as percentage in the healthbar
+            PlayerCanvas.canvas.SetHealth(value/maxHealth);
         }
     }
 }
