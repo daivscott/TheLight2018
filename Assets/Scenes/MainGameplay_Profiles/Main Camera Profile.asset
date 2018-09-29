@@ -27,7 +27,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b77c5407dc277943b591ade9e6b18c5, type: 3}
   m_Name: LensDistortion
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 1
@@ -97,7 +97,7 @@ MonoBehaviour:
     defaultState: 1
   intensity:
     overrideState: 1
-    value: 0.06
+    value: 0.175
   fastMode:
     overrideState: 1
     value: 0
@@ -204,13 +204,13 @@ MonoBehaviour:
     value: 100
   lift:
     overrideState: 1
-    value: {x: 0.96256375, y: 0.9082629, z: 1, w: 0}
+    value: {x: 1, y: 0.9482263, z: 0.9583925, w: 0}
   gamma:
     overrideState: 1
-    value: {x: 0.9533463, y: 1, z: 0.86512226, w: 0.013793104}
+    value: {x: 0.8051874, y: 1, z: 0.93129164, w: 0.013793104}
   gain:
     overrideState: 1
-    value: {x: 0.8468307, y: 0.8239886, z: 1, w: 0}
+    value: {x: 1, y: 0.6362666, z: 0.7242764, w: 0}
   masterCurve:
     overrideState: 0
     value:
