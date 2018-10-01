@@ -8,8 +8,8 @@ Material:
   m_PrefabInternal: {fileID: 0}
   m_Name: HDRP_Mat
   m_Shader: {fileID: 4800000, guid: 81d02e8644315b742b154842a3a2f98c, type: 3}
-  m_ShaderKeywords: _BENTNORMALMAP1 _BENTNORMALMAP3 _LAYEREDLIT_4_LAYERS _MASKMAP0
-    _MASKMAP1 _MASKMAP2 _MASKMAP3 _NORMALMAP0 _NORMALMAP1 _NORMALMAP2 _NORMALMAP3
+  m_ShaderKeywords: _BENTNORMALMAP0 _BENTNORMALMAP1 _BENTNORMALMAP3 _LAYEREDLIT_4_LAYERS
+    _MASKMAP0 _MASKMAP1 _MASKMAP2 _MASKMAP3 _NORMALMAP0 _NORMALMAP1 _NORMALMAP2 _NORMALMAP3
     _NORMALMAP_TANGENT_SPACE0 _NORMALMAP_TANGENT_SPACE1 _NORMALMAP_TANGENT_SPACE2
     _NORMALMAP_TANGENT_SPACE3
   m_LightmapFlags: 4
@@ -23,15 +23,15 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseColorMap0:
-        m_Texture: {fileID: 2800000, guid: c824430a5886c454298ddae705cffb59, type: 3}
+        m_Texture: {fileID: 2800000, guid: f9938834d116e9646b7884cc8cb33e86, type: 3}
         m_Scale: {x: 300, y: 300}
         m_Offset: {x: 0, y: 0}
     - _BaseColorMap1:
         m_Texture: {fileID: 2800000, guid: cebf95bd26a72864cb65e6ae13268e06, type: 3}
-        m_Scale: {x: 300, y: 300}
+        m_Scale: {x: 290, y: 290}
         m_Offset: {x: 0, y: 0}
     - _BaseColorMap2:
-        m_Texture: {fileID: 2800000, guid: 4c0434c5a23e4554e8ae4a95e271ec39, type: 3}
+        m_Texture: {fileID: 2800000, guid: 27020d0084e70c64bb030fe883b1abd5, type: 3}
         m_Scale: {x: 250, y: 250}
         m_Offset: {x: 0, y: 0}
     - _BaseColorMap3:
@@ -39,7 +39,7 @@ Material:
         m_Scale: {x: 270, y: 270}
         m_Offset: {x: 0, y: 0}
     - _BentNormalMap0:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: a2b8c39be0a7f5e4487ecf48459d5640, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BentNormalMap1:
@@ -59,7 +59,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BentNormalMapOS1:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 8fd6925eb1516f84c91231daac3805ef, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BentNormalMapOS2:
@@ -140,7 +140,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskMap0:
-        m_Texture: {fileID: 2800000, guid: 31fcda74d9bc0c4478dd9d15eff92d2d, type: 3}
+        m_Texture: {fileID: 2800000, guid: 4f924fd63af490d48be6fd0be37b2f82, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskMap1:
@@ -148,7 +148,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskMap2:
-        m_Texture: {fileID: 2800000, guid: d3cf4500414007c4c895584cfcf1fbc3, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9d45883eb3c12074b9175bc8e6550875, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskMap3:
@@ -160,7 +160,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap0:
-        m_Texture: {fileID: 2800000, guid: 0f14368c0d28ef9448f73365e3f17fd7, type: 3}
+        m_Texture: {fileID: 2800000, guid: 637503bc1851f7843ac9f5498f6f5688, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap1:
@@ -168,7 +168,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap2:
-        m_Texture: {fileID: 2800000, guid: 17cc5677d5a413843b9003e53261c859, type: 3}
+        m_Texture: {fileID: 2800000, guid: 09891065d729b4645b4cf672ef380fa8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap3:
@@ -180,7 +180,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMapOS1:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 5d5f1fadf129f534ea4171d9d3d96340, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMapOS2:
@@ -331,7 +331,7 @@ Material:
     - _InheritBaseNormal3: 0
     - _InitialBend: 1
     - _InvTilingScale0: 0.0033333334
-    - _InvTilingScale1: 0.0033333334
+    - _InvTilingScale1: 0.0034482758
     - _InvTilingScale2: 0.004
     - _InvTilingScale3: 0.0037037036
     - _LayerCount: 4
@@ -351,8 +351,8 @@ Material:
     - _NormalMapSpace2: 0
     - _NormalMapSpace3: 0
     - _NormalScale0: 0.99
-    - _NormalScale1: 1.753
-    - _NormalScale2: 1
+    - _NormalScale1: 2
+    - _NormalScale2: 2
     - _NormalScale3: 1.45
     - _ObjectScaleAffectTile: 0
     - _OcclusionStrength: 1

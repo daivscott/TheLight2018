@@ -10,6 +10,7 @@ Material:
   m_Shader: {fileID: 4800000, guid: 6e4ae4064600d784cac1e41a9e6f2e59, type: 3}
   m_ShaderKeywords: _ALPHATEST_ON _ANIM_HIERARCHY_PIVOT _DISABLE_DBUFFER _DOUBLESIDED_ON
     _MASKMAP _MATERIAL_FEATURE_TRANSMISSION _NORMALMAP _NORMALMAP_TANGENT_SPACE _THICKNESSMAP
+    _VERTEX_WIND
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 1
@@ -298,6 +299,18 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _albedomap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _maskmap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _normalmap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - _AORemapMax: 1
     - _AORemapMin: 0
@@ -314,6 +327,7 @@ Material:
     - _BillboardMode: 0
     - _BillboardShadowMode: 0
     - _BlendMode: 0
+    - _BranchStiffness: 0.8
     - _BumpScale: 1
     - _CoatCoverage: 1
     - _CoatIOR: 0.5
@@ -387,6 +401,7 @@ Material:
     - _Ior: 1
     - _IridescenceMask: 1
     - _IridescenceThickness: 1
+    - _LeafStiffness: 0.5
     - _LinkDetailsWithBase: 1
     - _MaskMapEncoding: 1
     - _MaterialID: 5
@@ -420,9 +435,9 @@ Material:
     - _SpecularAAThreshold: 0.2
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _StencilRef: 130
+    - _StencilRef: 2
     - _StencilRefMV: 128
-    - _StencilWriteMask: 135
+    - _StencilWriteMask: 7
     - _StencilWriteMaskMV: 128
     - _Stiffness: 1
     - _SubsurfaceMask: 1
@@ -451,6 +466,7 @@ Material:
     - _TreeDO2: 5
     - _TreeDOBias: 0
     - _TreeDOBias2: 0
+    - _TrunkStiffness: 1.11
     - _UVBase: 0
     - _UVDetail: 0
     - _UVEmissive: 0
@@ -482,6 +498,13 @@ Material:
     - _ZTestMode: 8
     - _ZTestModeDistortion: 8
     - _ZWrite: 1
+    - _alphaclip: 0
+    - _amapstrength: 0
+    - _metalValue: 0
+    - _smoothness: 0.5
+    - _strengthValue: 50
+    - _turbulenceValue: 30
+    - _usenormalmap: 0
     m_Colors:
     - _BackfaceBaseColorScale: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColor: {r: 0.8235294, g: 0.905071, b: 1, a: 1}
@@ -503,3 +526,7 @@ Material:
     - _UVDetailsMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMaskEmissive: {r: 1, g: 0, b: 0, a: 0}
+    - _albedocolor: {r: 0.19464216, g: 0.509434, b: 0.20418486, a: 0}
+    - _directionValue: {r: 3, g: 3, b: 0, a: 0}
+    - _offset: {r: 0, g: 0, b: 0, a: 0}
+    - _tiling: {r: 1, g: 1, b: 0, a: 0}

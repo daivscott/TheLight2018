@@ -518,6 +518,7 @@ GameObject:
   - component: {fileID: 114141970510278392}
   - component: {fileID: 114762503897501902}
   - component: {fileID: 114713307401415036}
+  - component: {fileID: 114737832055790396}
   m_Layer: 8
   m_Name: FirstPersonCharacter
   m_TagString: MainCamera
@@ -2077,7 +2078,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.685
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2560,6 +2561,63 @@ MonoBehaviour:
   firePosition: {fileID: 4709876202185082}
   shotEffects: {fileID: 114003773873367642}
   shotLength: 100
+--- !u!114 &114737832055790396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1430535444550384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23c1ce4fb46143f46bc5cb5224c934f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  clearColorMode: 0
+  backgroundColorHDR: {r: 0.025, g: 0.07, b: 0.19, a: 0}
+  clearDepth: 1
+  renderingPath: 0
+  volumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  aperture: 8
+  shutterSpeed: 0.005
+  iso: 400
+  m_FrameSettings:
+    enableShadow: 1
+    enableContactShadows: 1
+    enableSSR: 1
+    enableSSAO: 1
+    enableSubsurfaceScattering: 1
+    enableTransmission: 1
+    enableAtmosphericScattering: 1
+    enableVolumetrics: 1
+    diffuseGlobalDimmer: 1
+    specularGlobalDimmer: 1
+    enableForwardRenderingOnly: 0
+    enableDepthPrepassWithDeferredRendering: 0
+    enableTransparentPrepass: 1
+    enableMotionVectors: 1
+    enableObjectMotionVectors: 1
+    enableDBuffer: 1
+    enableRoughRefraction: 1
+    enableTransparentPostpass: 1
+    enableDistortion: 1
+    enablePostprocess: 1
+    enableStereo: 1
+    enableAsyncCompute: 1
+    enableOpaqueObjects: 1
+    enableTransparentObjects: 1
+    enableMSAA: 0
+    enableShadowMask: 1
+    lightLoopSettings:
+      enableTileAndCluster: 1
+      enableComputeLightEvaluation: 1
+      enableComputeLightVariants: 1
+      enableComputeMaterialVariants: 1
+      enableFptlForForwardOpaque: 1
+      enableBigTilePrepass: 1
+      isFptlEnabled: 1
 --- !u!114 &114762503897501902
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2730,10 +2788,18 @@ MonoBehaviour:
     BobAmount: 0.1
   m_StepInterval: 5
   m_FootstepSounds:
-  - {fileID: 8300000, guid: 42e65e088b3f4374e851b8dbd38f3df9, type: 3}
-  - {fileID: 8300000, guid: 8bc94ec6ed537e743b481638bdcd503d, type: 3}
-  m_JumpSound: {fileID: 8300000, guid: 5897aeed9b676024fbb8c694b421a861, type: 3}
-  m_LandSound: {fileID: 8300000, guid: 3b09d59f4499d45428baa7a21e954296, type: 3}
+  - {fileID: 8300000, guid: e3e70b8d2ddc77e43a86342d3623e1a1, type: 3}
+  - {fileID: 8300000, guid: 2933d174046bfbb438deb8452e710cc4, type: 3}
+  - {fileID: 8300000, guid: 65e091f060b86d04fad5c12cb7531f1b, type: 3}
+  - {fileID: 8300000, guid: 2d9bfe5aafec3c14eb970a923aaf6680, type: 3}
+  - {fileID: 8300000, guid: b5b76b8fcdb0ff2479c2a23c643729a8, type: 3}
+  - {fileID: 8300000, guid: 0e6a84c541b1dd241b1d7079d2030472, type: 3}
+  - {fileID: 8300000, guid: 31349a83d2d664243bb98e0f225aabfe, type: 3}
+  - {fileID: 8300000, guid: bf033424e28894c40b7a00832e1aa02f, type: 3}
+  - {fileID: 8300000, guid: 871757d39f678fc428f63ae9ec7cc299, type: 3}
+  - {fileID: 8300000, guid: e7ad3e325f28a8e499a9b413f4b21c2f, type: 3}
+  m_JumpSound: {fileID: 8300000, guid: 98cbd478b42519847b12fb03ace410ce, type: 3}
+  m_LandSound: {fileID: 8300000, guid: 4b43882d77fd2ee4e8a089f273591c1a, type: 3}
 --- !u!114 &114982677077646668
 MonoBehaviour:
   m_ObjectHideFlags: 1
