@@ -117,7 +117,22 @@ ModelImporter:
     4300000: Alien
     9500000: //RootNode
     13700000: Alien
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pasted__pasted__pasted__BodyMat
+    second: {fileID: 2100000, guid: 93f82d001a5ccb740b801b664be3ea81, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pasted__pasted__pasted__EyeMat
+    second: {fileID: 2100000, guid: 5b5789375b569784d885a9164454c75c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pasted__pasted__pasted__Mouth
+    second: {fileID: 2100000, guid: f2c35c35966eb5546afa1e1fcd1761f8, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

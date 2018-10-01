@@ -2563,7 +2563,7 @@ MonoBehaviour:
   shotLength: 100
 --- !u!114 &114737832055790396
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1430535444550384}
@@ -2870,9 +2870,9 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 58755aadc00222c4a90cd588792727e6, type: 3}
-  - {fileID: 2100002, guid: 58755aadc00222c4a90cd588792727e6, type: 3}
-  - {fileID: 2100004, guid: 58755aadc00222c4a90cd588792727e6, type: 3}
+  - {fileID: 2100000, guid: 5b5789375b569784d885a9164454c75c, type: 2}
+  - {fileID: 2100000, guid: 93f82d001a5ccb740b801b664be3ea81, type: 2}
+  - {fileID: 2100000, guid: f2c35c35966eb5546afa1e1fcd1761f8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
