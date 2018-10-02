@@ -10,7 +10,7 @@ public class PlayerCanvas : MonoBehaviour
     [SerializeField] Image reticule;
     [SerializeField] UIFader damageImage;
     [SerializeField] Text gameStatusText;
-    [SerializeField] Text healthValue;
+    //[SerializeField] Text healthValue;
     [SerializeField] Text killsValue;
     [SerializeField] Text logText;
     [SerializeField] AudioSource deathAudio;
@@ -31,7 +31,7 @@ public class PlayerCanvas : MonoBehaviour
         reticule = GameObject.Find ("Reticule").GetComponent<Image> ();
         damageImage = GameObject.Find ("DamagedFlash").GetComponent<UIFader> ();
         gameStatusText = GameObject.Find ("GameStatusText").GetComponent<Text> ();
-        healthValue = GameObject.Find ("HealthValue").GetComponent<Text> ();
+        //healthValue = GameObject.Find ("HealthValue").GetComponent<Text> ();
         killsValue = GameObject.Find ("KillsValue").GetComponent<Text> ();
         logText = GameObject.Find ("LogText").GetComponent<Text> ();
         deathAudio = GameObject.Find ("DeathAudio").GetComponent<AudioSource> ();

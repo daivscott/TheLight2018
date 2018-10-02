@@ -17,9 +17,16 @@ public class PlayerHealth : NetworkBehaviour {
         player = GetComponent<Player>();
     }
 
-    // Initialize health to max (controlled only by the server)
+    // Initialize health to max (controlled only by the server) on respawn
     [ServerCallback]
     void OnEnable()
+    {
+        health = maxHealth;
+    }
+
+    // Initialize health to max (controlled only by the server) at beginning
+    [ServerCallback]
+    void Start()
     {
         health = maxHealth;
     }
