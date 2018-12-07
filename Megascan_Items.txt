@@ -1,0 +1,22 @@
+Working Collision
+---------------------------
+pine_007_RootStump
+pine_004_3_baked_hierarchy
+
+
+
+
+
+
+Non working collision
+--------------------------
+pine_004_4_baked_hierarchy
+
+
+
+Non working collision visible seams
+--------------------------
+pine_002_XXL
+
+
+17.41 video
