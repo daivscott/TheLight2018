@@ -9,6 +9,9 @@ public class ToggleEvent : UnityEvent<bool> {}
 
 public class Player : NetworkBehaviour
 {
+    [SyncVar (hook = "OnNameChanged")] public string playerName;
+    [SyncVar(hook = "OnColorChanged")] public Color playerColor;
+
     [SerializeField] ToggleEvent onToggleShared;
     [SerializeField] ToggleEvent onToggleLocal;
     [SerializeField] ToggleEvent onToggleRemote;
@@ -97,5 +100,18 @@ public class Player : NetworkBehaviour
         }
 
         EnablePlayer();
+    }
+
+    void OnNameChanged(string value)
+    {
+        playerName = value;
+        gameObject.name = playerName;
+        // set text
+    }
+
+    void OnColorChanged(Color value)
+    {
+        playerColor = value;
+        GetComponentInChildren<RendererToggler>().ChangeColor(playerColor);
     }
 }

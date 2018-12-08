@@ -2389,6 +2389,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afa7b169b072a444f97055e5bce3c28d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerName: 
+  playerColor: {r: 0, g: 0, b: 0, a: 0}
   onToggleShared:
     m_PersistentCalls:
       m_Calls:
@@ -2574,7 +2576,7 @@ MonoBehaviour:
   shotLength: 100
 --- !u!114 &114737832055790396
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1430535444550384}
