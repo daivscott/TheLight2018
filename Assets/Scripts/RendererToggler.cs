@@ -10,7 +10,8 @@ public class RendererToggler : MonoBehaviour
 
     void Awake () 
     {
-        renderers = GetComponentsInChildren<Renderer> (true); 
+        //renderers = GetComponentsInChildren<Renderer> (true);
+        renderers = GetComponentsInChildren<Renderer>(true);
 
         if (enabledOnLoad)
             EnableRenderers ();
@@ -48,7 +49,10 @@ public class RendererToggler : MonoBehaviour
     {
         for (int i = 0; i < renderers.Length; i++) 
         {
-            renderers [i].material.color = newColor;
+            renderers[i].material.color = newColor;
+            //renderers[i].material.shader = Shader.Find("_BaseColor");
+            //renderers[i].material.SetColor("_BaseColor", newColor);
+
         }
     }
 }
