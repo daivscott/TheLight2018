@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 
 [System.Serializable]
@@ -107,6 +108,7 @@ public class Player : NetworkBehaviour
         playerName = value;
         gameObject.name = playerName;
         // set text
+        GetComponentInChildren<Text>(true).text = playerName;
     }
 
     void OnColorChanged(Color value)
