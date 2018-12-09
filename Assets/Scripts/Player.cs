@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.Events;
 using UnityEngine.UI;
-
+using System.Collections.Generic;
 
 [System.Serializable]
 public class ToggleEvent : UnityEvent<bool> {}
@@ -18,8 +18,12 @@ public class Player : NetworkBehaviour
     [SerializeField] ToggleEvent onToggleRemote;
     [SerializeField] float respawnTime = 5f;
 
+    static List<Player> players = new List<Player>();
+
     GameObject mainCamera;
     NetworkAnimator anim;
+
+    public float lobbyReturnTimer = 5f;
 
     void Start()
     {
@@ -29,6 +33,26 @@ public class Player : NetworkBehaviour
         mainCamera = Camera.main.gameObject;
 
         EnablePlayer();
+    }
+
+    // add player to list
+    [ServerCallback]
+    void OnEnable()
+    {
+        if(!players.Contains(this))
+        {
+            players.Add(this); 
+        }
+    }
+
+    // remove player from list if they leave
+    [ServerCallback]
+    void OnDisable()
+    {
+        if (players.Contains(this))
+        {
+            players.Add(this);
+        }
     }
 
     void Update()
@@ -77,12 +101,16 @@ public class Player : NetworkBehaviour
 
     public void Die()
     {
+        // check if local player or Bot
+        if (isLocalPlayer || playerControllerId == 1)
+        {
+            anim.SetTrigger("Died");
+        }
+
         if(isLocalPlayer)
         {
             PlayerCanvas.canvas.WriteGameStatusText("You Died");
             //PlayerCanvas.canvas.PlayDeathAudio();
-
-            anim.SetTrigger("Died");
         }
 
         DisablePlayer();
@@ -91,13 +119,17 @@ public class Player : NetworkBehaviour
 
     void Respawn()
     {
-        if(isLocalPlayer)
+        // check if local player or Bot
+        if (isLocalPlayer || playerControllerId == 1)
+        {
+            anim.SetTrigger("Restart");
+        }
+
+        if (isLocalPlayer)
         {
             Transform spawn = NetworkManager.singleton.GetStartPosition();
             transform.position = spawn.position;
-            transform.rotation = spawn.rotation;
-
-            anim.SetTrigger("Restart");
+            transform.rotation = spawn.rotation;            
         }
 
         EnablePlayer();
@@ -115,5 +147,44 @@ public class Player : NetworkBehaviour
     {
         playerColor = value;
         GetComponentInChildren<RendererToggler>().ChangeColor(playerColor);
+    }
+
+    [Server]
+    public void Won()
+    {
+        // inform players of winner
+        for (int i = 0; i < players.Count; i++)
+        {
+            players[i].RpcGameOver(netId, name);
+        }
+
+        // go back to the lobby
+        Invoke("BackToLobby", lobbyReturnTimer);
+    }
+
+    [ClientRpc]
+    void RpcGameOver(NetworkInstanceId networkID, string name)
+    {
+        DisablePlayer();
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        if(isLocalPlayer)
+        {
+            if(netId == networkID)
+            {
+                PlayerCanvas.canvas.WriteGameStatusText("You are the Winner!");
+            }
+            else
+            {
+                PlayerCanvas.canvas.WriteGameStatusText("Game Over!\n" + name + "\nWon The Game!");
+            }
+        }
+    }
+
+    void BackToLobby()
+    {
+        FindObjectOfType<NetworkLobbyManager>().SendReturnToLobby();
     }
 }

@@ -51,10 +51,13 @@ public class RendererToggler : MonoBehaviour
     {
         for (int i = 0; i < renderers.Length; i++)
         {
+            // Change player colour only in SRP version
             renderers[i].material.color = newColor;
+            //// Test change player colour in HDRP
             //renderers[i].material.shader = Shader.Find("BaseColor");
             //renderers[i].material.SetColor("_Basecolor", newColor);
         }
+        // Change name colour to lobby colour choice
         nameText.color = newColor;
     }
 }
