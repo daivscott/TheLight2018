@@ -102,7 +102,7 @@ public class Player : NetworkBehaviour
     public void Die()
     {
         // check if local player or Bot
-        if (isLocalPlayer || playerControllerId == 1)
+        if (isLocalPlayer || playerControllerId == -1)
         {
             anim.SetTrigger("Died");
         }
@@ -120,7 +120,7 @@ public class Player : NetworkBehaviour
     void Respawn()
     {
         // check if local player or Bot
-        if (isLocalPlayer || playerControllerId == 1)
+        if (isLocalPlayer || playerControllerId == -1)
         {
             anim.SetTrigger("Restart");
         }

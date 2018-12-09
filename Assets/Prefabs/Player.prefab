@@ -2589,6 +2589,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: ToggleEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   respawnTime: 5
+  lobbyReturnTimer: 5
 --- !u!114 &114413152184879026
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2668,12 +2669,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotCooldown: 0.1
+  killsToWin: 5
   firePosition: {fileID: 4709876202185082}
   shotEffects: {fileID: 114003773873367642}
   shotLength: 100
 --- !u!114 &114737832055790396
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1430535444550384}

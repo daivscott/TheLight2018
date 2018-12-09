@@ -69,10 +69,13 @@ public class PlayerShooting : NetworkBehaviour {
         // check if hit location exists
         if(result)
         {
+            // check hit location and if enemy has PlayerHealth script 
             PlayerHealth enemy = hit.transform.GetComponent<PlayerHealth>();
 
+            // if enemy had a PlayerHealth script
             if (enemy != null)
             {
+                // check if 
                 bool wasKillshot = enemy.TakeDamage();
 
                 // increment kills if the shot is a killshot
@@ -101,6 +104,7 @@ public class PlayerShooting : NetworkBehaviour {
     // score changed call back function
     void OnScoreChanged(int value)
     {
+        Debug.Log("value=" + value + "  score=" + score);
         score = value;
         if(isLocalPlayer)
         {

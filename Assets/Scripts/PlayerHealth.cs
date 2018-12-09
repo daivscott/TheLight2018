@@ -36,14 +36,14 @@ public class PlayerHealth : NetworkBehaviour {
     public bool TakeDamage()
     {
         bool died = false;
-        if (health <= 0)
+        if (health <= 0f)
             return died;
 
         //decrement the health variable
         health--;
 
         // set died variable to true if health less than 0
-        died = health <= 0;
+        died = health <= 0f;
 
         // function call
         RpcTakeDamage(died);
@@ -73,5 +73,13 @@ public class PlayerHealth : NetworkBehaviour {
             // Setting the health amount as percentage in the healthbar
             PlayerCanvas.canvas.SetHealth(value/maxHealth);
         }
+    }
+
+    void Update()
+    {
+        if (health < 0f)
+            health = 0f;
+        if (health < maxHealth)
+        health = health + 0.01f;
     }
 }
