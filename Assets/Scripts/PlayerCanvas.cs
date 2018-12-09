@@ -19,22 +19,22 @@ public class PlayerCanvas : MonoBehaviour
     //Ensure there is only one PlayerCanvas
     void Awake()
     {
-        if (canvas == null)
+        if(canvas == null)
             canvas = this;
-        else if (canvas != this)
-            Destroy (gameObject);
+        else if(canvas != this)
+            Destroy(gameObject);
     }
 
     //Find all of our resources
     void Reset()
     {
-        reticule = GameObject.Find ("Reticule").GetComponent<Image> ();
-        damageImage = GameObject.Find ("DamagedFlash").GetComponent<UIFader> ();
-        gameStatusText = GameObject.Find ("GameStatusText").GetComponent<Text> ();
-        //healthValue = GameObject.Find ("HealthValue").GetComponent<Text> ();
-        killsValue = GameObject.Find ("KillsValue").GetComponent<Text> ();
-        logText = GameObject.Find ("LogText").GetComponent<Text> ();
-        deathAudio = GameObject.Find ("DeathAudio").GetComponent<AudioSource> ();
+        reticule = GameObject.Find("Reticule").GetComponent<Image> ();
+        damageImage = GameObject.Find("DamagedFlash").GetComponent<UIFader> ();
+        gameStatusText = GameObject.Find("GameStatusText").GetComponent<Text> ();
+        //healthValue = GameObject.Find("HealthValue").GetComponent<Text> ();
+        killsValue = GameObject.Find("KillsValue").GetComponent<Text> ();
+        logText = GameObject.Find("LogText").GetComponent<Text> ();
+        deathAudio = GameObject.Find("DeathAudio").GetComponent<AudioSource> ();
     }
 
     // Initialize display
@@ -53,21 +53,21 @@ public class PlayerCanvas : MonoBehaviour
     // Flash the damage effect function
     public void FlashDamageEffect()
     {
-        damageImage.Flash ();
+        damageImage.Flash();
     }
 
     // Play audio on death function
     public void PlayDeathAudio()
     {
         if (!deathAudio.isPlaying)
-            deathAudio.Play ();
+            deathAudio.Play();
     }
 
 
     // Set GUI kills value
     public void SetKills(int amount)
     {
-        killsValue.text = amount.ToString ();
+        killsValue.text = amount.ToString();
     }
 
     // Set GUI health amount

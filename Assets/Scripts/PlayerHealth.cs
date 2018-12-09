@@ -24,12 +24,12 @@ public class PlayerHealth : NetworkBehaviour {
         health = maxHealth;
     }
 
-    // Initialize health to max (controlled only by the server) at beginning
-    [ServerCallback]
-    void Start()
-    {
-        health = maxHealth;
-    }
+    //// Initialize health to max (controlled only by the server) at beginning
+    //[ServerCallback]
+    //void Start()
+    //{
+    //    health = maxHealth;
+    //}
 
     // 
     [Server]

@@ -9,19 +9,19 @@ public class PlayerShooting : NetworkBehaviour {
     [SerializeField] int killsToWin = 5;
     [SerializeField] Transform firePosition;
     [SerializeField] ShotEffectsManager shotEffects;
-
-    // add player script
-    Player player;
-    float ellapsedTime;
-    [SerializeField] private float shotLength = 50f;
-    bool canShoot;
+    [SerializeField] float shotLength = 50f;
 
     // kills variable with callback on value change
     [SyncVar(hook = "OnScoreChanged")] int score;
+    
+    // add player script
+    Player player;
+    float ellapsedTime;    
+    bool canShoot;    
 
     void Start()
     {
-        // refernce to player script
+        // reference to player script
         player = GetComponent<Player>();
 
         shotEffects.Initialize();
@@ -77,10 +77,10 @@ public class PlayerShooting : NetworkBehaviour {
             if (enemy != null)
             {
                 // check if 
-                bool wasKillshot = enemy.TakeDamage();
+                bool wasKillShot = enemy.TakeDamage();
 
                 // increment kills if the shot is a killshot
-                if(wasKillshot && ++score >= killsToWin)
+                if(wasKillShot && ++score >= killsToWin)
                 {
                     player.Won();
                 }

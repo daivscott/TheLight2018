@@ -18,7 +18,7 @@ public class GunPositionSync : NetworkBehaviour
 
     void Start()
     {
-        anim = GetComponent<Animator> ();
+        anim = GetComponent<Animator>();
 
         if (isLocalPlayer)
             // Parent to camera

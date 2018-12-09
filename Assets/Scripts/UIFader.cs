@@ -17,51 +17,51 @@ public class UIFader : MonoBehaviour
 
     void Reset()
     {
-        //Attempt to grab the CanvasGroup on this object
+        // Attempt to grab the CanvasGroup on this object
         groupToFade = GetComponent<CanvasGroup>();
     }
 
     void Start()
     {
-        //If the object should start visible, set it to be visible. Otherwise, set it invisible
+        // If the object should start visible, set it to be visible. Otherwise, set it invisible
         if (startVisible)
-            SetVisible ();
+            SetVisible();
         else
-            SetInvisible ();
+            SetInvisible();
 
-        //If there shouldn't be any initial fade, leave this method
+        // If there shouldn't be any initial fade, leave this method
         if (!startWithFade)
             return;
 
-        //If the object is currently visible, fade out. Otherwise fade in
+        // If the object is currently visible, fade out. Otherwise fade in
         if (visible)
-            StartFadeOut ();
+            StartFadeOut();
         else
-            StartFadeIn ();
+            StartFadeIn();
     }
 
-    //Publicly accessible methods for fading in or fading out without needing to start a 
-    //coroutine. These are needed in order for UI events (like buttons) to start a fade in
-    //or out.
+    // Publicly accessible methods for fading in or fading out without needing to start a 
+    // coroutine. These are needed in order for UI events (like buttons) to start a fade in
+    // or out.
     public void StartFadeIn()
     {
-        StartCoroutine (FadeIn ());
+        StartCoroutine(FadeIn());
     }
 
     public void StartFadeOut()
     {
-        StartCoroutine (FadeOut ());
+        StartCoroutine(FadeOut());
     }
 
     // These functions are used if fades are required to be instant.
-    public void SetVisible ()
+    public void SetVisible()
     {
         groupToFade.alpha = 1f;
         visible = true;
     }
 
 
-    public void SetInvisible ()
+    public void SetInvisible()
     {
         groupToFade.alpha = 0f;
         visible = false;
@@ -70,7 +70,7 @@ public class UIFader : MonoBehaviour
     IEnumerator FadeIn()
     {
         // Fading needs to continue until the group is completely faded in
-        while (groupToFade.alpha < 1f) 
+        while(groupToFade.alpha < 1f) 
         {
             //Increase the alpha
             groupToFade.alpha += fadeSpeed * Time.deltaTime;
@@ -82,9 +82,9 @@ public class UIFader : MonoBehaviour
         visible = true;
     }
 
-    IEnumerator FadeOut ()
+    IEnumerator FadeOut()
     {
-        while (groupToFade.alpha > 0f) 
+        while(groupToFade.alpha > 0f) 
         {
             groupToFade.alpha -= fadeSpeed * Time.deltaTime;
 
@@ -96,12 +96,12 @@ public class UIFader : MonoBehaviour
 
     public void Flash()
     {
-        StartCoroutine (ProcessFlash ());
+        StartCoroutine(ProcessFlash());
     }
 
     IEnumerator ProcessFlash()
     {
-        yield return StartCoroutine (FadeIn ());
-        yield return StartCoroutine (FadeOut ());
+        yield return StartCoroutine(FadeIn());
+        yield return StartCoroutine(FadeOut());
     }
 }

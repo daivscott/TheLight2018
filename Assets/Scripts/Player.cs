@@ -17,13 +17,12 @@ public class Player : NetworkBehaviour
     [SerializeField] ToggleEvent onToggleLocal;
     [SerializeField] ToggleEvent onToggleRemote;
     [SerializeField] float respawnTime = 5f;
+    [SerializeField] float lobbyReturnTimer = 5f;
 
     static List<Player> players = new List<Player>();
 
     GameObject mainCamera;
     NetworkAnimator anim;
-
-    public float lobbyReturnTimer = 5f;
 
     void Start()
     {
@@ -69,7 +68,7 @@ public class Player : NetworkBehaviour
 
     void DisablePlayer()
     {
-        if (isLocalPlayer)
+        if(isLocalPlayer)
         {
             PlayerCanvas.canvas.HideReticule();
             mainCamera.SetActive(true);
@@ -109,7 +108,7 @@ public class Player : NetworkBehaviour
 
         if(isLocalPlayer)
         {
-            PlayerCanvas.canvas.WriteGameStatusText("You Died");
+            PlayerCanvas.canvas.WriteGameStatusText("You Died!");
             //PlayerCanvas.canvas.PlayDeathAudio();
         }
 
@@ -174,11 +173,11 @@ public class Player : NetworkBehaviour
         {
             if(netId == networkID)
             {
-                PlayerCanvas.canvas.WriteGameStatusText("You are the Winner!");
+                PlayerCanvas.canvas.WriteGameStatusText("You Won!");
             }
             else
             {
-                PlayerCanvas.canvas.WriteGameStatusText("Game Over!\n" + name + "\nWon The Game!");
+                PlayerCanvas.canvas.WriteGameStatusText("Game Over!\n\n" + name + "\n\nWon The Game!");
             }
         }
     }

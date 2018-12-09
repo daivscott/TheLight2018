@@ -16,9 +16,9 @@ public class RendererToggler : MonoBehaviour
         renderers = GetComponentsInChildren<Renderer>(true);
 
         if (enabledOnLoad)
-            EnableRenderers ();
+            EnableRenderers();
         else
-            DisableRenderers ();
+            DisableRenderers();
     }
 
     //Method used by our Unity events to show and hide the player
