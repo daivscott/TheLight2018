@@ -86,16 +86,25 @@ public class PlayerShooting : NetworkBehaviour {
                 {
                     killed = true;
                 }
-                // increment kills if the shot is a killshot
-                if(wasKillShot && !killed && ++score >= killsToWin)
+                if (!killed)
                 {
-                    player.Won();
+                    // increment kills if the shot is a killshot
+                    if (wasKillShot && ++score >= killsToWin)
+                    {
+                        player.Won();
+                        Invoke ("ResetKilledFlag", 1f);
+                    }
                 }
             }
         }
         // call to process shot effects
         RpcProcessShotEffects(result, hit.point);
 
+    }
+
+    void ResetKilledFlag()
+    {
+        killed = false;
     }
 
     // Set clients to play shot effects from the server
