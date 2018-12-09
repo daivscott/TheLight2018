@@ -51,7 +51,7 @@ public class Player : NetworkBehaviour
     {
         if (players.Contains(this))
         {
-            players.Add(this);
+            players.Remove(this);
         }
     }
 

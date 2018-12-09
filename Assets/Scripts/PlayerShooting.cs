@@ -1,5 +1,6 @@
-﻿using UnityEngine.Networking;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Networking;
+
 
 public class PlayerShooting : NetworkBehaviour {
 
