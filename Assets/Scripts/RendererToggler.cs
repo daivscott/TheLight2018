@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RendererToggler : MonoBehaviour 
 {
@@ -7,10 +8,11 @@ public class RendererToggler : MonoBehaviour
     [SerializeField] bool enabledOnLoad = false;
 
     Renderer[] renderers;
+    public Text nameText;
+
 
     void Awake () 
     {
-        //renderers = GetComponentsInChildren<Renderer> (true);
         renderers = GetComponentsInChildren<Renderer>(true);
 
         if (enabledOnLoad)
@@ -30,29 +32,29 @@ public class RendererToggler : MonoBehaviour
 
     public void EnableRenderers()
     {
-        for (int i = 0; i < renderers.Length; i++) 
+        for (int i = 0; i < renderers.Length; i++)
         {
-            renderers [i].enabled = true;
+            renderers[i].enabled = true;
         }
     }
 
     public void DisableRenderers()
     {
-        for (int i = 0; i < renderers.Length; i++) 
+        for (int i = 0; i < renderers.Length; i++)
         {
-            renderers [i].enabled = false;
+            renderers[i].enabled = false;
         }
     }
 
     //Will be used to change the color of the players for different options
     public void ChangeColor(Color newColor)
     {
-        for (int i = 0; i < renderers.Length; i++) 
+        for (int i = 0; i < renderers.Length; i++)
         {
             renderers[i].material.color = newColor;
-            //renderers[i].material.shader = Shader.Find("_BaseColor");
-            //renderers[i].material.SetColor("_BaseColor", newColor);
-
+            //renderers[i].material.shader = Shader.Find("BaseColor");
+            //renderers[i].material.SetColor("_Basecolor", newColor);
         }
+        nameText.color = newColor;
     }
 }

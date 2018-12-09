@@ -1,16 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using Prototype.NetworkLobby;
+using UnityEngine.Networking;
 
-public class LightLobbyHook : MonoBehaviour {
+public class LightLobbyHook : LobbyHook
+{
+    public override void OnLobbyServerSceneLoadedForPlayer(NetworkManager manager, GameObject lobbyPlayer,
+        GameObject gamePlayer)
+    {
+        LobbyPlayer lPlayer = lobbyPlayer.GetComponent<LobbyPlayer>();
+        Player gPlayer = gamePlayer.GetComponent<Player>();
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+        gPlayer.playerName = lPlayer.playerName;
+        gPlayer.playerColor = lPlayer.playerColor;
+    }
 }
