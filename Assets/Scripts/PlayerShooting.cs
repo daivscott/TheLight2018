@@ -77,7 +77,7 @@ public class PlayerShooting : NetworkBehaviour {
             PlayerHealth enemy = hit.transform.GetComponent<PlayerHealth>();
 
             // if enemy had a PlayerHealth script
-            if (enemy != null && !killed)
+            if (enemy != null)
             {
                 // check if 
                 bool wasKillShot = enemy.TakeDamage();
@@ -87,7 +87,7 @@ public class PlayerShooting : NetworkBehaviour {
                     killed = true;
                 }
                 // increment kills if the shot is a killshot
-                if(wasKillShot && ++score >= killsToWin)
+                if(wasKillShot && !killed && ++score >= killsToWin)
                 {
                     player.Won();
                 }
