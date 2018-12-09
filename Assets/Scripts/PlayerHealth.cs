@@ -24,12 +24,6 @@ public class PlayerHealth : NetworkBehaviour {
         health = maxHealth;
     }
 
-    //// Initialize health to max (controlled only by the server) at beginning
-    //[ServerCallback]
-    //void Start()
-    //{
-    //    health = maxHealth;
-    //}
 
     // 
     [Server]
@@ -37,13 +31,16 @@ public class PlayerHealth : NetworkBehaviour {
     {
         bool died = false;
         if (health <= 0f)
+        {
             return died;
+        }
+            
 
         //decrement the health variable
         health--;
 
         // set died variable to true if health less than 0
-        died = health <= 0f;
+        died = health >= 0f;
 
         // function call
         RpcTakeDamage(died);

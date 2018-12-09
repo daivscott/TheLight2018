@@ -11,6 +11,8 @@ public class PlayerShooting : NetworkBehaviour {
     [SerializeField] ShotEffectsManager shotEffects;
     [SerializeField] float shotLength = 50f;
 
+    public bool killed;
+
     // kills variable with callback on value change
     [SyncVar(hook = "OnScoreChanged")] int score;
     
@@ -35,6 +37,7 @@ public class PlayerShooting : NetworkBehaviour {
     void OnEnable()
     {
         score = 0;
+        killed = false;
     }
 
     void Update()
@@ -74,11 +77,15 @@ public class PlayerShooting : NetworkBehaviour {
             PlayerHealth enemy = hit.transform.GetComponent<PlayerHealth>();
 
             // if enemy had a PlayerHealth script
-            if (enemy != null)
+            if (enemy != null && !killed)
             {
                 // check if 
                 bool wasKillShot = enemy.TakeDamage();
-
+                          
+                if(wasKillShot)
+                {
+                    killed = true;
+                }
                 // increment kills if the shot is a killshot
                 if(wasKillShot && ++score >= killsToWin)
                 {

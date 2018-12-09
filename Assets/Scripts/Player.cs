@@ -26,8 +26,12 @@ public class Player : NetworkBehaviour
 
     void Start()
     {
-        // Set reference to animator
-        anim = GetComponent<NetworkAnimator>();
+        // temp fix for name canvas or colour not displaying properly on client
+        OnNameChanged(playerName);
+        OnColorChanged(playerColor);
+
+    // Set reference to animator
+    anim = GetComponent<NetworkAnimator>();
 
         mainCamera = Camera.main.gameObject;
 
