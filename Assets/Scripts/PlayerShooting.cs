@@ -6,7 +6,7 @@ public class PlayerShooting : NetworkBehaviour {
 
     // Variables and Component references
     [SerializeField] float shotCooldown = 0.3f;
-    [SerializeField] int killsToWin = 5;
+    [SerializeField] int killsToWin = 1;
     [SerializeField] Transform firePosition;
     [SerializeField] ShotEffectsManager shotEffects;
     [SerializeField] float shotLength = 50f;

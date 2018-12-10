@@ -2673,9 +2673,11 @@ MonoBehaviour:
   firePosition: {fileID: 4709876202185082}
   shotEffects: {fileID: 114003773873367642}
   shotLength: 100
+  wasKillShot: 0
+  killed: 0
 --- !u!114 &114737832055790396
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1430535444550384}

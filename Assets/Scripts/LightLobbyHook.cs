@@ -12,5 +12,13 @@ public class LightLobbyHook : LobbyHook
 
         gPlayer.playerName = lPlayer.playerName;
         gPlayer.playerColor = lPlayer.playerColor;
+
+        
+    }
+
+    void OnEnable()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }

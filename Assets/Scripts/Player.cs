@@ -10,15 +10,15 @@ public class ToggleEvent : UnityEvent<bool> {}
 
 public class Player : NetworkBehaviour
 {
-    [SyncVar (hook = "OnNameChanged")] public string playerName;
+    [SyncVar(hook = "OnNameChanged")] public string playerName;
     [SyncVar(hook = "OnColorChanged")] public Color playerColor;
 
     [SerializeField] ToggleEvent onToggleShared;
     [SerializeField] ToggleEvent onToggleLocal;
     [SerializeField] ToggleEvent onToggleRemote;
-    [SerializeField] float respawnTime = 4f;
-    [SerializeField] float lobbyReturnTimer = 7f;
-    [SerializeField] bool gameOver = false;
+    [SerializeField] float respawnTime = 3f;
+    [SerializeField] float lobbyReturnTimer = 5f;
+    [SerializeField] static bool gameOver = false;
 
     static List<Player> players = new List<Player>();
 
@@ -31,19 +31,20 @@ public class Player : NetworkBehaviour
         OnNameChanged(playerName);
         OnColorChanged(playerColor);
 
-    // Set reference to animator
-    anim = GetComponent<NetworkAnimator>();
+        // Set reference to animator
+        anim = GetComponent<NetworkAnimator>();
 
         mainCamera = Camera.main.gameObject;
 
-        EnablePlayer();
+        if (!gameOver)
+            EnablePlayer();
     }
 
     // add player to list
     [ServerCallback]
     void OnEnable()
     {
-        //gameOver = false;
+        gameOver = false;
 
         if (!players.Contains(this))
         {
@@ -69,9 +70,10 @@ public class Player : NetworkBehaviour
             //Cursor.lockState = CursorLockMode.None;
             //Cursor.visible = true;
 
+            //CancelInvoke();
             //CancelInvoke("Die");
             //CancelInvoke("Respawn");
-            //CancelInvoke("Won");
+            //CancelInvoke("EnablePlayer");
             //Invoke("BackToLobby", lobbyReturnTimer);
         }
 
@@ -103,6 +105,7 @@ public class Player : NetworkBehaviour
 
     void EnablePlayer()
     {
+        Debug.Log("Enabling Player");
         if (isLocalPlayer)
         {
             PlayerCanvas.canvas.Initialize();
@@ -137,11 +140,6 @@ public class Player : NetworkBehaviour
 
     void Respawn()
     {
-        ResetPlayer();        
-    }
-
-    void ResetPlayer()
-    {
         // check if local player or Bot
         if (isLocalPlayer || playerControllerId == -1)
         {
@@ -154,7 +152,10 @@ public class Player : NetworkBehaviour
             transform.position = spawn.position;
             transform.rotation = spawn.rotation;
         }
-        EnablePlayer();
+
+        
+        if (!gameOver)
+            EnablePlayer();
     }
 
 
@@ -174,11 +175,18 @@ public class Player : NetworkBehaviour
 
     [Server]
     public void Won()
-    {        
-        gameOver = true;
+    {
+        GameOver();
+        PlayerCanvas.canvas.WriteGameStatusText("You Won!");
 
         Invoke("SendWinMessage", 3f);
                 
+    }
+
+    [ServerCallback]
+    void GameOver()
+    {
+        gameOver = true;
     }
 
     void SendWinMessage()
@@ -189,6 +197,8 @@ public class Player : NetworkBehaviour
             players[i].RpcGameOver(netId, name);
         }
 
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         // go back to the lobby
         Invoke("BackToLobby", lobbyReturnTimer);
     }
@@ -198,10 +208,9 @@ public class Player : NetworkBehaviour
     {
         DisablePlayer();
 
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        gameOver = true;
 
-        if(isLocalPlayer)
+        if (isLocalPlayer)
         {
             if(netId == networkID)
             {
