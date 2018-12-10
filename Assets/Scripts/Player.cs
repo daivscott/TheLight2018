@@ -16,8 +16,8 @@ public class Player : NetworkBehaviour
     [SerializeField] ToggleEvent onToggleShared;
     [SerializeField] ToggleEvent onToggleLocal;
     [SerializeField] ToggleEvent onToggleRemote;
-    [SerializeField] float respawnTime = 5f;
-    [SerializeField] float lobbyReturnTimer = 5f;
+    [SerializeField] float respawnTime = 4f;
+    [SerializeField] float lobbyReturnTimer = 7f;
     [SerializeField] bool gameOver = false;
 
     static List<Player> players = new List<Player>();
@@ -43,7 +43,7 @@ public class Player : NetworkBehaviour
     [ServerCallback]
     void OnEnable()
     {
-        gameOver = false;
+        //gameOver = false;
 
         if (!players.Contains(this))
         {
@@ -63,7 +63,19 @@ public class Player : NetworkBehaviour
 
     void Update()
     {
-        if(!isLocalPlayer)
+        if (gameOver)
+        {
+            respawnTime = 0;
+            //Cursor.lockState = CursorLockMode.None;
+            //Cursor.visible = true;
+
+            //CancelInvoke("Die");
+            //CancelInvoke("Respawn");
+            //CancelInvoke("Won");
+            //Invoke("BackToLobby", lobbyReturnTimer);
+        }
+
+        if (!isLocalPlayer)
         {
             return;
         }
@@ -125,24 +137,26 @@ public class Player : NetworkBehaviour
 
     void Respawn()
     {
-        if (!gameOver)
-        {
-            // check if local player or Bot
-            if (isLocalPlayer || playerControllerId == -1)
-            {
-                anim.SetTrigger("Restart");
-            }
-
-            if (isLocalPlayer)
-            {
-                Transform spawn = NetworkManager.singleton.GetStartPosition();
-                transform.position = spawn.position;
-                transform.rotation = spawn.rotation;
-            }
-
-            EnablePlayer();
-        }
+        ResetPlayer();        
     }
+
+    void ResetPlayer()
+    {
+        // check if local player or Bot
+        if (isLocalPlayer || playerControllerId == -1)
+        {
+            anim.SetTrigger("Restart");
+        }
+
+        if (isLocalPlayer)
+        {
+            Transform spawn = NetworkManager.singleton.GetStartPosition();
+            transform.position = spawn.position;
+            transform.rotation = spawn.rotation;
+        }
+        EnablePlayer();
+    }
+
 
     void OnNameChanged(string value)
     {
@@ -160,14 +174,20 @@ public class Player : NetworkBehaviour
 
     [Server]
     public void Won()
+    {        
+        gameOver = true;
+
+        Invoke("SendWinMessage", 3f);
+                
+    }
+
+    void SendWinMessage()
     {
         // inform players of winner
         for (int i = 0; i < players.Count; i++)
         {
             players[i].RpcGameOver(netId, name);
         }
-
-        gameOver = true;
 
         // go back to the lobby
         Invoke("BackToLobby", lobbyReturnTimer);
