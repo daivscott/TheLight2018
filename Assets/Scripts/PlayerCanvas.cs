@@ -73,6 +73,8 @@ public class PlayerCanvas : MonoBehaviour
     // Set GUI health amount
     public void SetHealth(float amount)
     {
+        if (amount < 0)
+            amount = 0;
         // Set healthbar amount
         healthBarFill.localScale = new Vector3(amount, 1f, 1f);
         //healthValue.text = amount.ToString ();

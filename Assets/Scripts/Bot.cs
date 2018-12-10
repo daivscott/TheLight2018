@@ -5,7 +5,7 @@ public class Bot : NetworkBehaviour
 {
     public bool botCanShoot = true;
 
-    [SerializeField] float shotCooldown = 1f;
+    [SerializeField] float shotCooldown = .5f;
 
     PlayerShooting playerShooting;
     NetworkAnimator anim;
@@ -48,7 +48,7 @@ public class Bot : NetworkBehaviour
         BotAutoFire();
     }
 
-    [Server]
+    [ServerCallback]
     void BotAutoFire()
     {
         ellapsedTime += Time.deltaTime;

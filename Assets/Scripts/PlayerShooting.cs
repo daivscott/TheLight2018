@@ -10,8 +10,8 @@ public class PlayerShooting : NetworkBehaviour {
     [SerializeField] Transform firePosition;
     [SerializeField] ShotEffectsManager shotEffects;
     [SerializeField] float shotLength = 50f;
-
-    public bool killed;
+    [SerializeField] bool wasKillShot;
+    [SerializeField] bool killed;
 
     // kills variable with callback on value change
     [SyncVar(hook = "OnScoreChanged")] int score;
@@ -30,14 +30,15 @@ public class PlayerShooting : NetworkBehaviour {
 
         if (isLocalPlayer)
             canShoot = true;
+
+        
     }
 
     // Initialize kills (controlled only by the server)
     [ServerCallback]
     void OnEnable()
     {
-        score = 0;
-        killed = false;
+        score = 0;        
     }
 
     void Update()
@@ -79,32 +80,19 @@ public class PlayerShooting : NetworkBehaviour {
             // if enemy had a PlayerHealth script
             if (enemy != null)
             {
-                // check if 
-                bool wasKillShot = enemy.TakeDamage();
-                          
-                if(wasKillShot)
+
+                bool wasKillShot = enemy.TakeDamage();           
+
+                // increment kills if the shot is a killshot
+                if (wasKillShot && ++score >= killsToWin)
                 {
-                    killed = true;
-                }
-                if (!killed)
-                {
-                    // increment kills if the shot is a killshot
-                    if (wasKillShot && ++score >= killsToWin)
-                    {
-                        player.Won();
-                        Invoke ("ResetKilledFlag", 1f);
-                    }
+                    player.Won();                 
                 }
             }
         }
         // call to process shot effects
         RpcProcessShotEffects(result, hit.point);
 
-    }
-
-    void ResetKilledFlag()
-    {
-        killed = false;
     }
 
     // Set clients to play shot effects from the server
