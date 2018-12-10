@@ -15,10 +15,15 @@ namespace Prototype.NetworkLobby
         public InputField ipInput;
         public InputField matchNameInput;
 
-        public void OnEnable()
+        void OnApplicationFocus(bool hasFocus)
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+        }
+
+        public void OnEnable()
+        {
+            
 
             lobbyManager.topPanel.ToggleVisibility(true);
 
