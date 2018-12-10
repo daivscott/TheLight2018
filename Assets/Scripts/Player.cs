@@ -18,6 +18,7 @@ public class Player : NetworkBehaviour
     [SerializeField] ToggleEvent onToggleRemote;
     [SerializeField] float respawnTime = 5f;
     [SerializeField] float lobbyReturnTimer = 5f;
+    [SerializeField] bool gameOver = false;
 
     static List<Player> players = new List<Player>();
 
@@ -42,7 +43,9 @@ public class Player : NetworkBehaviour
     [ServerCallback]
     void OnEnable()
     {
-        if(!players.Contains(this))
+        gameOver = false;
+
+        if (!players.Contains(this))
         {
             players.Add(this); 
         }
@@ -122,20 +125,23 @@ public class Player : NetworkBehaviour
 
     void Respawn()
     {
-        // check if local player or Bot
-        if (isLocalPlayer || playerControllerId == -1)
+        if (!gameOver)
         {
-            anim.SetTrigger("Restart");
-        }
+            // check if local player or Bot
+            if (isLocalPlayer || playerControllerId == -1)
+            {
+                anim.SetTrigger("Restart");
+            }
 
-        if (isLocalPlayer)
-        {
-            Transform spawn = NetworkManager.singleton.GetStartPosition();
-            transform.position = spawn.position;
-            transform.rotation = spawn.rotation;            
-        }
+            if (isLocalPlayer)
+            {
+                Transform spawn = NetworkManager.singleton.GetStartPosition();
+                transform.position = spawn.position;
+                transform.rotation = spawn.rotation;
+            }
 
-        EnablePlayer();
+            EnablePlayer();
+        }
     }
 
     void OnNameChanged(string value)
@@ -160,6 +166,8 @@ public class Player : NetworkBehaviour
         {
             players[i].RpcGameOver(netId, name);
         }
+
+        gameOver = false;
 
         // go back to the lobby
         Invoke("BackToLobby", lobbyReturnTimer);
