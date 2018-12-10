@@ -35,7 +35,6 @@ public class PlayerHealth : NetworkBehaviour {
     [Server]
     public bool TakeDamage()
     {
-        Debug.Log("health = " + health);
         // assume not dead so set to false
         bool died = false;
 

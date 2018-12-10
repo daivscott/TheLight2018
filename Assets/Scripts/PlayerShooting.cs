@@ -108,8 +108,7 @@ public class PlayerShooting : NetworkBehaviour {
 
     // score changed call back function
     void OnScoreChanged(int value)
-    {
-        Debug.Log("value=" + value + "  score=" + score);
+    {        
         score = value;
         if(isLocalPlayer)
         {
