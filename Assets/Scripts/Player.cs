@@ -167,7 +167,7 @@ public class Player : NetworkBehaviour
             players[i].RpcGameOver(netId, name);
         }
 
-        gameOver = false;
+        gameOver = true;
 
         // go back to the lobby
         Invoke("BackToLobby", lobbyReturnTimer);
