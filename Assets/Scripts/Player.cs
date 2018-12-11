@@ -225,6 +225,13 @@ public class Player : NetworkBehaviour
 
     void BackToLobby()
     {
+        ResetGameOver();
         FindObjectOfType<NetworkLobbyManager>().SendReturnToLobby();
+    }
+
+    [ServerCallback]
+    void ResetGameOver()
+    {
+        gameOver = false;
     }
 }
