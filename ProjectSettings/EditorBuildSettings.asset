@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/GameLobby.unity
     guid: de8e23c292bd39d4fa4dcd658c7e6fcd
   - enabled: 1
-    path: Assets/Scenes/GameArena.unity
-    guid: 96d9671cfd6ebeb49afd6bba78ab1622
+    path: Assets/Scenes/Pyramid.unity
+    guid: 101128a14c536fb429744fdd4a3fc7fc
   m_configObjects: {}
