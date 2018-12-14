@@ -19,6 +19,8 @@ ModelImporter:
     4300000: Cube
     4300002: Cube.001
     6400000: //RootNode
+    6400002: Cube
+    6400004: Cube.001
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
@@ -56,8 +58,8 @@ ModelImporter:
     addColliders: 1
     importVisibility: 1
     importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -76,7 +78,7 @@ ModelImporter:
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 3
+    tangentImportMode: 0
     normalCalculationMode: 4
   importAnimation: 1
   copyAvatar: 0

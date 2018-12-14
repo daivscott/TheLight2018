@@ -3,7 +3,10 @@ guid: 99fd46d3816e82646afd76f7ba2cdb3b
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - muzzleFlash: {instanceID: 0}
+  - gunAudio: {instanceID: 0}
+  - impactPrefab: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

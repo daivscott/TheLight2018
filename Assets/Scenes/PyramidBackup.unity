@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.07875507, g: 0.07704143, b: 0.06676101, a: 1}
+  m_IndirectSpecularColor: {r: 0.07875549, g: 0.0770418, b: 0.06676119, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3371,7 +3371,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parameters:
     albedo: {r: 0.5420078, g: 0.5863915, b: 0.7924528, a: 1}
-    meanFreePath: 40
+    meanFreePath: 70
     asymmetry: 0
     volumeMask: {fileID: 0}
     textureIndex: -1
@@ -3385,7 +3385,7 @@ Transform:
   m_GameObject: {fileID: 571315745}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 300, y: 50, z: 300}
+  m_LocalScale: {x: 300, y: 100, z: 300}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
